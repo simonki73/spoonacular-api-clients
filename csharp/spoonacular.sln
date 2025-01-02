@@ -1,12 +1,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spoonacular", "src\spoonacular\spoonacular.csproj", "{F31A0234-3AB7-4F0C-B889-AECE893F4AC5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spoonacular.Test", "src\spoonacular.Test\spoonacular.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spoonacular.Console", "Spoonacular.Console\Spoonacular.Console.csproj", "{C49CD86E-F3DA-4165-A30A-B9F9B84FB266}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spoonacular.Console", "src\Spoonacular.Console\Spoonacular.Console.csproj", "{AC349260-5CD8-4B0D-B3AB-E17114B3F0D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +22,10 @@ Global
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C49CD86E-F3DA-4165-A30A-B9F9B84FB266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C49CD86E-F3DA-4165-A30A-B9F9B84FB266}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C49CD86E-F3DA-4165-A30A-B9F9B84FB266}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C49CD86E-F3DA-4165-A30A-B9F9B84FB266}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC349260-5CD8-4B0D-B3AB-E17114B3F0D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC349260-5CD8-4B0D-B3AB-E17114B3F0D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC349260-5CD8-4B0D-B3AB-E17114B3F0D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC349260-5CD8-4B0D-B3AB-E17114B3F0D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

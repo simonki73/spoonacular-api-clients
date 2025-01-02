@@ -19,6 +19,8 @@ using Xunit;
 
 using spoonacular.Client;
 using spoonacular.Api;
+using spoonacular.Model;
+
 // uncomment below to import models
 //using spoonacular.Model;
 
@@ -37,7 +39,14 @@ namespace spoonacular.Test.Api
 
         public DefaultApiTests()
         {
-            instance = new DefaultApi();
+            Configuration config = new()
+            {
+                BasePath = "https://api.spoonacular.com"
+            };
+            // Configure API key authorization: apiKeyScheme
+            config.ApiKey.Add("x-api-key", "6cf9f5b58fa44e4e9fb48939fdbcde93");
+            instance = new DefaultApi(config);
+           
         }
 
         public void Dispose()
@@ -52,7 +61,7 @@ namespace spoonacular.Test.Api
         public void InstanceTest()
         {
             // TODO uncomment below to test 'IsType' DefaultApi
-            //Assert.IsType<DefaultApi>(instance);
+            Assert.IsType<DefaultApi>(instance);
         }
 
         /// <summary>
@@ -62,12 +71,18 @@ namespace spoonacular.Test.Api
         public void AnalyzeRecipeTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //AnalyzeRecipeRequest analyzeRecipeRequest = null;
-            //string? language = null;
-            //bool? includeNutrition = null;
-            //bool? includeTaste = null;
-            //var response = instance.AnalyzeRecipe(analyzeRecipeRequest, language, includeNutrition, includeTaste);
-            //Assert.IsType<Object>(response);
+            AnalyzeRecipeRequest analyzeRecipeRequest = new AnalyzeRecipeRequest
+            {
+                Ingredients = ["1sp sugar"],
+                Instructions = "Add it to the medicine",
+                Servings = 1,
+                Title = "A spoonful of sugar"
+            };
+            string? language = "en";
+            bool? includeNutrition = false;
+            bool? includeTaste = false;
+            var response = instance.AnalyzeRecipe(analyzeRecipeRequest, language, includeNutrition, includeTaste);
+            Assert.IsType<Newtonsoft.Json.Linq.JObject>(response);
         }
 
         /// <summary>

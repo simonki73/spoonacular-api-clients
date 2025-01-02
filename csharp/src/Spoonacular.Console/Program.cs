@@ -1,8 +1,10 @@
-﻿using spoonacular.Api;
+﻿using Newtonsoft.Json.Linq;
+using spoonacular.Api;
 using spoonacular.Client;
 using spoonacular.Model;
 using System.Diagnostics;
 using System.IO;
+using System.Text.Json;
 
 namespace Example
 {
@@ -10,8 +12,10 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.spoonacular.com";
+            Configuration config = new()
+            {
+                BasePath = "https://api.spoonacular.com"
+            };
             // Configure API key authorization: apiKeyScheme
             config.ApiKey.Add("x-api-key", "6cf9f5b58fa44e4e9fb48939fdbcde93");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -43,14 +47,20 @@ namespace Example
             try
             {
                 // Analyze Recipe
-                var result = apiInstance.AnalyzeRecipe(analyzeRecipeRequest, language, includeNutrition, includeTaste);
-                string path = $"{analyzeRecipeRequest.Title}.json";
-                if (!File.Exists(path))
-                {
-                    // Create a file to write to.
-                    using StreamWriter sw = File.CreateText(path);
-                    sw.Write(result.ToString());
-                }
+                var result = (JObject)apiInstance.AnalyzeRecipe(analyzeRecipeRequest, language, includeNutrition, includeTaste);
+                // Create a file to write to.
+                string resultPath = $"result-{analyzeRecipeRequest.Title}.json";
+                using StreamWriter swResult = File.CreateText(resultPath);
+                swResult.Write(result.ToString());
+
+                // Create a file to write to.
+                var response = result.ToObject<AnalyzeRecipeResponse>();
+                string responsePath = $"response-{response.title}.json";
+                using StreamWriter swResponse = File.CreateText(responsePath);
+                swResponse.Write(JsonSerializer.Serialize(response));
+
+                
+
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
